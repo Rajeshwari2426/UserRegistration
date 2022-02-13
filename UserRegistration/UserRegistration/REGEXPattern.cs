@@ -46,6 +46,15 @@ namespace UserRegistration
             else
                 Console.WriteLine("Invalid mobile number!!");
         }
+        public static void CheckPassword(string password)
+        {
+            string passwordPattern = "^[A-Za-z0-9]{8,}$";
+            if (Regex.IsMatch(password, passwordPattern))
+                Console.WriteLine("Password is valid");
+            else
+                Console.WriteLine("Invalid password!!");
+        }
+
 
     }
 }
