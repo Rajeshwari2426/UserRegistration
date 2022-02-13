@@ -48,7 +48,7 @@ namespace UserRegistration
         }
         public static void CheckPassword(string password)
         {
-            string passwordPattern = "^[A-Za-z0-9]{8,}$";
+            string passwordPattern = "^(?=.*?[a-z])(?=.*?[A-Z]).{8,}";
             if (Regex.IsMatch(password, passwordPattern))
                 Console.WriteLine("Password is valid");
             else
