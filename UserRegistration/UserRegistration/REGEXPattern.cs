@@ -20,7 +20,7 @@ namespace UserRegistration
             else
                 Console.WriteLine("Invalid name!!");
         }
-        //Method to check Lasst name
+        //Method to check Last name
         public static void CheckLastName(string lastName)
         {
             string lastNamePattern = "^[A-Z][a-z]{3,}$";
@@ -28,6 +28,15 @@ namespace UserRegistration
                 Console.WriteLine("Last Name is valid");
             else
                 Console.WriteLine("Invalid name!!");
+        }
+        //Method to check email
+        public static void CheckEmailId(string Emailid)
+        {            
+            string emailpattern = "^[a-zA-Z0-9]+[._+-]{0,1}[0-9a-zA-Z]+[@][0-9a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
+            if (Regex.IsMatch(Emailid, emailpattern))
+                Console.WriteLine("Email id is valid");
+            else
+                Console.WriteLine("Invalid email id!!");
         }
 
     }

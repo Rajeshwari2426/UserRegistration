@@ -14,13 +14,17 @@ namespace UserRegistration
             Console.WriteLine("*First letter should be capital.");
             Console.WriteLine("*length should be Minimum three characters.");
             Console.WriteLine("Enter First name :");
-            string firstName = Console.ReadLine();     
+            string firstName = Console.ReadLine();
             REGEXPattern.CheckFirstName(firstName);
 
-            Console.WriteLine("* Last name should starts with Capital and must have minimum 3 characters.");            
+            Console.WriteLine("* Last name should starts with Capital and must have minimum 3 characters.");
             Console.WriteLine("Enter Last name :");
             string lastName = Console.ReadLine();
             REGEXPattern.CheckLastName(lastName);
+
+            Console.WriteLine("Enter Email id :");
+            string email = Console.ReadLine();
+            REGEXPattern.CheckEmailId(email);
 
             Console.ReadLine();
         }
