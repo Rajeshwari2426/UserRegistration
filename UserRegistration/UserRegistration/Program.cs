@@ -26,6 +26,10 @@ namespace UserRegistration
             string email = Console.ReadLine();
             REGEXPattern.CheckEmailId(email);
 
+            Console.WriteLine("Enter Mobile No.(eg:+91-6589745984):");
+            string mobileNum = Console.ReadLine();
+            REGEXPattern.CheckMobileNum(mobileNum);
+
             Console.ReadLine();
         }
     }

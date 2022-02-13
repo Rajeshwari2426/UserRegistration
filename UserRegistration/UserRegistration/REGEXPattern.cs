@@ -38,6 +38,14 @@ namespace UserRegistration
             else
                 Console.WriteLine("Invalid email id!!");
         }
+        public static void CheckMobileNum(string Mobilenum)
+        {
+            string mobilenumpattern = @"^\+91-[6-9][0-9]{9}";
+            if (Regex.IsMatch(Mobilenum, mobilenumpattern))
+                Console.WriteLine("Mobile number is valid");
+            else
+                Console.WriteLine("Invalid mobile number!!");
+        }
 
     }
 }
