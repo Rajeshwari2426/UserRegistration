@@ -38,6 +38,7 @@ namespace UserRegistration
             else
                 Console.WriteLine("Invalid email id!!");
         }
+        //Method to check mobile number
         public static void CheckMobileNum(string Mobilenum)
         {
             string mobilenumpattern = @"^\+91-[6-9][0-9]{9}";
@@ -46,9 +47,10 @@ namespace UserRegistration
             else
                 Console.WriteLine("Invalid mobile number!!");
         }
+        //Method to check password with atleast one numeric number
         public static void CheckPassword(string password)
         {
-            string passwordPattern = "^(?=.*?[a-z])(?=.*?[A-Z]).{8,}";
+            string passwordPattern = "^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{8,}";
             if (Regex.IsMatch(password, passwordPattern))
                 Console.WriteLine("Password is valid");
             else
