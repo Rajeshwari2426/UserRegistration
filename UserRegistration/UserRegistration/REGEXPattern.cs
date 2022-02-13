@@ -48,10 +48,12 @@ namespace UserRegistration
                 Console.WriteLine("Invalid mobile number!!");
         }
         //Method to check password with atleast one numeric number
-        public static void CheckPassword(string password)
+        public static void CheckPassword(string password)               
         {
-            string passwordPattern = "^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{8,}";
-            if (Regex.IsMatch(password, passwordPattern))
+            string passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
+            string specialChar = "[&%$#@^*!~]";
+            int count = Regex.Matches(password,specialChar).Count;
+            if (Regex.IsMatch(password, passwordPattern) && count==1)
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Invalid password!!");
