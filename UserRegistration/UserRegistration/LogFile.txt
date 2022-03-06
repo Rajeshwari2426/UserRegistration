@@ -1,0 +1,30 @@
+﻿2022-03-06 23:20:29.7041 INFO Email-ID is Valid: raji@gmail.com
+2022-03-06 23:21:25.6132 INFO Email-ID is Valid: abc@gmail.com
+2022-03-06 23:21:45.1873 INFO Email-ID is Valid: abc-100@yahoo.com
+2022-03-06 23:22:09.1206 INFO Email-ID is Valid: abc.100@yahoo.com
+2022-03-06 23:22:25.6234 INFO Email-ID is Valid: abc111@yahoo.com
+2022-03-06 23:22:46.9285 INFO Email-ID is Valid: abc111@abc.com
+2022-03-06 23:25:32.4844 ERROR Email-ID is not Valid: 3. abc.100@yahoo.com
+2022-03-06 23:26:37.0846 INFO Email-ID is Valid: abc.100@yahoo.com
+2022-03-06 23:27:15.4937 INFO Email-ID is Valid: abc111@abc.com
+2022-03-06 23:27:41.5961 INFO Email-ID is Valid: abc-100@abc.net
+2022-03-06 23:28:05.0191 INFO Email-ID is Valid: abc.100@abc.com.au
+2022-03-06 23:28:37.7198 INFO Email-ID is Valid: abc@1.com
+2022-03-06 23:29:03.2912 INFO Email-ID is Valid: abc@gmail.com.com
+2022-03-06 23:29:33.1729 INFO Email-ID is Valid: abc+100@gmail.com
+2022-03-06 23:29:59.8142 ERROR Email-ID is not Valid: abc - must contains "@" symbol
+2022-03-06 23:30:36.2415 ERROR Email-ID is not Valid: abc - must contains "@" symbol
+2022-03-06 23:32:37.3652 ERROR Email-ID is not Valid: abc
+2022-03-06 23:32:56.4057 ERROR Email-ID is not Valid: abc
+2022-03-06 23:33:54.3664 ERROR Email-ID is not Valid: abc@.com.my
+2022-03-06 23:34:43.7559 ERROR Email-ID is not Valid: abc123@gmail.a
+2022-03-06 23:35:12.8537 ERROR Email-ID is not Valid: abc123@.com
+2022-03-06 23:35:35.3569 ERROR Email-ID is not Valid: abc123@.com.com
+2022-03-06 23:35:57.4963 ERROR Email-ID is not Valid: .abc@abc.com
+2022-03-06 23:36:21.6685 ERROR Email-ID is not Valid: abc()*@gmail.com
+2022-03-06 23:36:45.2741 ERROR Email-ID is not Valid: abc@%*.com
+2022-03-06 23:37:13.8834 ERROR Email-ID is not Valid: abc..2002@gmail.com
+2022-03-06 23:37:32.4249 ERROR Email-ID is not Valid: abc.@gmail.com
+2022-03-06 23:37:56.1622 ERROR Email-ID is not Valid: abc@abc@gmail.com
+2022-03-06 23:38:22.5467 ERROR Email-ID is not Valid: abc@gmail.com.1a
+2022-03-06 23:38:46.9090 ERROR Email-ID is not Valid: abc@gmail.com.aa.au

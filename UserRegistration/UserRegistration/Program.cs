@@ -6,37 +6,59 @@ using System.Threading.Tasks;
 
 namespace UserRegistration
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
-        {
-            //Console.WriteLine("Welcome User  for Registration");
-            //Console.WriteLine("*First letter should be capital.");
-            //Console.WriteLine("*length should be Minimum three characters.");
-            //Console.WriteLine("Enter First name :");
-            //string firstName = Console.ReadLine();
-            //REGEXPattern.CheckFirstName(firstName);
+        {           
+            Console.WriteLine("WElcome to User Registration Program using Regex\n");
 
-            //Console.WriteLine("* Last name should starts with Capital and must have minimum 3 characters.");
-            //Console.WriteLine("Enter Last name :");
-            //string lastName = Console.ReadLine();
-            //REGEXPattern.CheckLastName(lastName);
-
-            //Console.WriteLine("Enter Email id :");
-            //string email = Console.ReadLine();
-            //REGEXPattern.CheckEmailId(email);
-
-            //Console.WriteLine("Enter Mobile No.(eg:+91-6589745984):");
-            //string mobileNum = Console.ReadLine();
-            //REGEXPattern.CheckMobileNum(mobileNum);
-
-            Console.WriteLine("Enter a  password  with atleast one Capital letter,one Number and exactly one special character:");
-            string password = Console.ReadLine();
-            REGEXPattern.CheckPassword(password);
-
-            REGEXPattern.SampleEmail();
-
-            Console.ReadLine();
+            while (true)
+            {
+                Console.WriteLine("Please choose an option to Validate:");
+                Console.WriteLine("\n1. First Name \n2. Last Name \n3. Email-ID \n4. Mobile Number \n5. Password \n6. Exit");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("\nPlease Enter your First Name:");
+                        Console.WriteLine("Note: First name starts with Cap and has minimun 3 characters");
+                        string firstName = Console.ReadLine();
+                        Console.WriteLine(REGEXPattern.ValidateFirstName(firstName));
+                        break;
+                    case 2:
+                        Console.WriteLine("\nPlease Enter your Last Name:");
+                        Console.WriteLine("Note: Last name starts with Cap and has minimun 3 characters");
+                        string lastName = Console.ReadLine();
+                        Console.WriteLine(REGEXPattern.ValidateLastName(lastName));
+                        break;
+                    case 3:
+                        Console.WriteLine("\nPlease Enter your Email-ID:");
+                        Console.WriteLine("Note: E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions");
+                        string email = Console.ReadLine();
+                        REGEXPattern.ValidateEmail(email);
+                        break;
+                    case 4:
+                        Console.WriteLine("\nPlease Enter your Mobie Number:");
+                        Console.WriteLine("Note: Country code follow by space and 10 digit number");
+                        string mobNum = Console.ReadLine();
+                        REGEXPattern.ValidateMobileNumber(mobNum);
+                        break;
+                    case 5:
+                        Console.WriteLine("\nPlease Enter your Password:");
+                        Console.WriteLine("Note: Password must contain min 8 characters, atleast 1 Upper Case, atleast 1 numeric number and 1 special character");
+                        string password = Console.ReadLine();
+                        REGEXPattern.ValidatePassword(password);
+                        break;
+                    case 6:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Please choose a valid option");
+                        break;
+                }
+                  Console.ReadLine();
+            }
         }
     }
+    
 }

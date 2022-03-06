@@ -7,78 +7,96 @@ using System.Text.RegularExpressions;
 
 namespace UserRegistration
 {
-    internal class REGEXPattern
-    {
-        //Method to check first name
-        public  static void CheckFirstName(string name)
-        {
-            string firstNamePattern = "^[A-Z][a-z]{3,}$";
-            if (Regex.IsMatch(name, firstNamePattern))
+    public class REGEXPattern
+    {       
+            //UC1 - Method to Validate First Name entered by user
+            public static string ValidateFirstName(string firstName)
             {
-                Console.WriteLine("First Name is valid");
-            }
-            else
-                Console.WriteLine("Invalid name!!");
-        }
-        //Method to check Last name
-        public static void CheckLastName(string lastName)
-        {
-            string lastNamePattern = "^[A-Z][a-z]{3,}$";
-            if (Regex.IsMatch(lastName, lastNamePattern))
-                Console.WriteLine("Last Name is valid");
-            else
-                Console.WriteLine("Invalid name!!");
-        }
-        //Method to check email
-        public static void CheckEmailId(string Emailid)
-        {            
-            string emailpattern = "^[a-zA-Z0-9]+[._+-]{0,1}[0-9a-zA-Z]+[@][0-9a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
-            if (Regex.IsMatch(Emailid, emailpattern))
-                Console.WriteLine("Email id is valid");
-            else
-                Console.WriteLine("Invalid email id!!");
-        }
-        //Method to check mobile number
-        public static void CheckMobileNum(string Mobilenum)
-        {
-            string mobilenumpattern = @"^\+91-[6-9][0-9]{9}";
-            if (Regex.IsMatch(Mobilenum, mobilenumpattern))
-                Console.WriteLine("Mobile number is valid");
-            else
-                Console.WriteLine("Invalid mobile number!!");
-        }
-        //Method to check password with atleast one numeric number
-        public static void CheckPassword(string password)               
-        {
-            string passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
-            string specialChar = "[&%$#@^*!~]";
-            int count = Regex.Matches(password,specialChar).Count;
-            if (Regex.IsMatch(password, passwordPattern) && count==1)
-                Console.WriteLine("Password is valid");
-            else
-                Console.WriteLine("Invalid password!!");
-        }
-        public static string sampleEmailPattern = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
-        public static void SampleEmail()
-        {
-            string[] sampleEmail ={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc-100@abc.net","abc111@abc.com","abc+100@gmail.com",
-                                   "abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc","abc@.com.my","abc123@gmail.a","abc123@.com",
-                                   "abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc.@gmail.com","abc@gmail.com.1a",
-                                   "abc@gmail.com.aa.au","abc..2002@gmail.com"};
+                string firstName_pattern = "^[A-Z][a-zA-Z]{2,}$";
 
-            Console.WriteLine("Validate Sample Email Id");
-            Validate(sampleEmail, sampleEmailPattern);
-        }
-        public static void Validate(string[] arr, string pattern)
-        {
-            foreach (var item in arr)
-            {
-                if (Regex.IsMatch(item, pattern))
-                    Console.WriteLine(item + " \t\t " + "Valid Email");
+                if (Regex.IsMatch(firstName, firstName_pattern))
+                {
+                    Console.WriteLine("First Name is Valid");
+                    return firstName;
+                }
                 else
-                    Console.WriteLine(item + " \t\t " + "InValid Email");
+                {
+                    return "First Name is not Valid";
+                }
             }
-        }
 
+            //UC2 - Method to Validate Last Name entered by user
+            public static string ValidateLastName(string lastName)
+            {
+                string lastName_pattern = "^[A-Z][a-zA-Z]{2,}$";
+
+                if (Regex.IsMatch(lastName, lastName_pattern))
+                {
+                    Console.WriteLine("Last Name is Valid");
+                    return lastName;
+                }
+                else
+                {
+                    return "Last Name is not Valid";
+                }
+            }
+
+            //UC3 - Method to Validate Email-ID entered by user
+            public static string ValidateEmail(string email)
+            {
+                string email_pattern = @"^[a-zA-Z0-9]{3,10}([._+-][a-zA-Z0-9]{1,10})?@[a-zA-Z0-9]{1,10}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
+
+                if (Regex.IsMatch(email, email_pattern))
+                {
+                    Console.WriteLine("Email is Valid");
+                    NLog.SuccessInfo("Email-ID is Valid: " + email);
+                    return email;
+                }
+                else
+                {
+                    NLog.ErrorInfo("Email-ID is not Valid: " + email);
+                    return "Email is not Valid";
+                }
+            }
+
+            //UC4 - Method to Validate Mobile Number entered by user
+            public static string ValidateMobileNumber(string mobNum)
+            {
+                string mobNum_pattern = "^[+]?91[ -][1-9][0-9]{9}$";
+
+                if (Regex.IsMatch(mobNum, mobNum_pattern))
+                {
+                    Console.WriteLine("Mobie Number is Valid");
+                    return mobNum;
+                }
+                else
+                {
+                    return "Mobie Number is not Valid";
+
+                }
+            }
+
+            //UC5, UC6, UC7, UC8  - Method to Validate Password entered by user
+            public static string ValidatePassword(string password)
+            {
+                //string password_Pattern = "^[a-zA-Z]{8,}$";                                               //UC5: Password must contain min 8 characters
+                //string password_pattern = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";                                //UC6: UC5 + atleast 1 Upper Case
+                //string password_Pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";                     //UC7: UC6 + atleast 1 numeric number
+                string password_Pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]).{8,}$";     //UC8: UC7 + 1 special character
+
+                if (Regex.IsMatch(password, password_Pattern))
+                {
+                    Console.WriteLine("Password is Valid");
+                    NLog.SuccessInfo("Password is Valid: " + password);
+                    return password;
+                }
+                else
+                {
+                    NLog.ErrorInfo("Invalid Password: " + password);
+                    return "Password is not Valid";
+                }
+            }
+        
+       
     }
 }
