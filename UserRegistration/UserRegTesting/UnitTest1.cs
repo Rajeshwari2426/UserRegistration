@@ -28,7 +28,8 @@ namespace UserRegTesting
         [TestMethod]
         [DataRow("Gandi", "Gandi")]
         [DataRow("gandi", "Last Name is not Valid")]
-        [DataRow("", "Last Name is not Valid")]
+        [DataRow("", "Last name should not be empty")]
+        [DataRow(null, "Object reference not set to an instance of an object.")]
         public void TestLastName(string userInput, string expected)
         {
             ///Act
@@ -42,7 +43,8 @@ namespace UserRegTesting
         //Arrange   
         [TestCategory("User EmailId")]
         [TestMethod]
-        [DataRow("", "Email is not Valid")]
+        [DataRow("", "Email should not be empty")]
+        [DataRow(null, "Object reference not set to an instance of an object.")]
         [DataRow("abc@gmail.com", "abc@gmail.com")]
         [DataRow("abc-100@yahoo.com", "abc-100@yahoo.com")]
         [DataRow("abc.100@yahoo.com", "abc.100@yahoo.com")]
@@ -79,12 +81,13 @@ namespace UserRegTesting
         [DataRow("91 1234567890", "91 1234567890")]
         [DataRow("+91-9999999999", "+91-9999999999")]
         [DataRow("91-9585858585", "91-9585858585")]
-        [DataRow("91 0123456789", "Mobie Number is not Valid")]
-        [DataRow("91123456789", "Mobie Number is not Valid")]
-        [DataRow("9112345678", "Mobie Number is not Valid")]
-        [DataRow("91+123456789", "Mobie Number is not Valid")]
-        [DataRow("91 12345678901112", "Mobie Number is not Valid")]
-        [DataRow("", "Mobie Number is not Valid")]
+        [DataRow("91 0123456789", "Mobile Number is not Valid")]
+        [DataRow("91123456789", "Mobile Number is not Valid")]
+        [DataRow("9112345678", "Mobile Number is not Valid")]
+        [DataRow("91+123456789", "Mobile Number is not Valid")]
+        [DataRow("91 12345678901112", "Mobile Number is not Valid")]
+        [DataRow("", "Mobile Number should not be empty")]
+        [DataRow(null, "Object reference not set to an instance of an object.")]
         public void TestUserPhoneNumber(string userInput, string expected)
         { 
             ///Act
@@ -102,7 +105,8 @@ namespace UserRegTesting
         [DataRow("GHJGHjghjfgj", "Password is not Valid")]
         [DataRow("hgfgh#123554", "Password is not Valid")]
         [DataRow("HGgf@#1", "Password is not Valid")]
-        [DataRow("", "Password is not Valid")]
+        [DataRow("", "Password should not be empty")]
+        [DataRow(null, "Object reference not set to an instance of an object.")]
         public void TestUserPassword(string userInput, string expected)
         {
             ///Act
